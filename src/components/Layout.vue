@@ -1,14 +1,14 @@
 <template>
-  <van-config-provider theme="dark">
-  <van-tabbar route fixed style="position: fixed; top: 0; left: 0; right: 0; z-index: 10;">
+  <router-view style="margin: 30px 0 150px 0;"  />
+  <!-- <van-config-provider theme="dark"> -->
+  <van-tabbar route >
     <van-tabbar-item replace to="/Profile" icon="home-o">Home</van-tabbar-item>
-    <van-tabbar-item replace to="/Action" icon="search">Tab</van-tabbar-item>
+    <van-tabbar-item replace to="/Action" icon="search">Search</van-tabbar-item>
     
     <!-- <van-tabbar-item replace to="" icon="friends-o">Tab 3</van-tabbar-item> -->
-    <van-tabbar-item replace to="/Setting" icon="setting-o">Tab 4</van-tabbar-item>
+    <van-tabbar-item replace to="/Setting" icon="setting-o">Setting</van-tabbar-item>
   </van-tabbar>
-  <router-view style="margin-top: 70px;"  />
-</van-config-provider>
+<!-- </van-config-provider> -->
 </template>
 
 <script>
@@ -31,5 +31,14 @@ export default {
 .van-theme-dark body {
   color: #fff;
   background-color: black;
+}
+.van-tabbar-item {
+  margin-bottom: 10px;
+}
+.van-tabbar--fixed {
+    position: fixed;
+    height: 70px;
+    bottom: 0;
+    left: 0;
 }
 </style>

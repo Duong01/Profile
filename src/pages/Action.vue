@@ -1,13 +1,12 @@
 <template>
 <div class="content" >
 
-  <van-row justify="center" :gutter="[20, 20]">
-    <van-col span="18">span: 6</van-col>
-    <van-col span="18">span: 6</van-col>
-    <van-col span="18">span: 6</van-col>
-    <van-col span="18">span: 6</van-col>
-    <van-col span="18">span: 6</van-col>
-  </van-row>
+  <iframe
+ src="https://udify.app/chatbot/9IsiXNeXEJXr2fGS"
+ style="width: 100%; height: 100%; min-height: 500px"
+ frameborder="0"
+ allow="microphone">
+</iframe>
 </div>
 
 
