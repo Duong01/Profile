@@ -1,6 +1,6 @@
 <template>
 <van-config-provider :theme="theme">
-  <van-switch v-model="checked"  active-color="#dcdee0" inactive-color="#000">
+  <van-switch v-model="checked"  @change="changeTheme"  active-color="#dcdee0" inactive-color="#000">
   <template #node>
     <div class="icon-wrapper">
       <van-icon :name="checked ? 'success' : 'cross'" />
@@ -20,14 +20,21 @@ export default {
   name: "SettingPage",
   data(){
     return{
-      checked: true,
-      theme: "light",
+      checked: localStorage.getItem("theme") === "light",
       musicSrc: require("../assets/music.mp3")
     }
+  },
+  methods: {
+    changeTheme() {
+      const newTheme = this.checked ? "light" : "dark";
+      this.$emit("update-theme", newTheme);
+      location.reload()
+    },
   },
   watch: {
     checked(newVal) {
       this.theme = newVal ? "light" : "dark";
+      localStorage.setItem('theme', this.theme)
     },
   },
 };
