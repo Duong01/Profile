@@ -1,11 +1,15 @@
 <template>
 <van-config-provider :theme="theme">
-  <van-switch v-model="checked"  @change="changeTheme"  active-color="#dcdee0" inactive-color="#000">
+  <van-switch v-model="checked"  @change="changeTheme"  active-color="#dcdee0" inactive-color="#630202">
   <template #node>
-    <div class="icon-wrapper">
-      <van-icon :name="checked ? 'success' : 'cross'" />
-    </div>
-  </template>
+      <div class="icon-wrapper">
+        <img 
+          :src="checked ? require('@/assets/iconsun.png') : require('@/assets/iconMoon.png')" 
+          alt="icon" 
+          class="custom-icon"
+        />
+      </div>
+    </template>
 </van-switch>
 <van-divider></van-divider>
 <audio ref="backgroundMusic" :src="musicSrc" autoplay loop></audio>
@@ -20,9 +24,12 @@ export default {
   name: "SettingPage",
   data(){
     return{
-      checked: localStorage.getItem("theme") === "light",
+      checked:  localStorage.getItem("theme") === "light",
       musicSrc: require("../assets/music.mp3")
     }
+  },
+  created(){
+    
   },
   methods: {
     changeTheme() {
@@ -37,26 +44,23 @@ export default {
       localStorage.setItem('theme', this.theme)
     },
   },
+  computed:{
+    
+  }
 };
 </script>
 
 <style scoped>
+  .custom-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .icon-wrapper {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    font-size: 18px;
-  }
-
-  .icon-wrapper .van-icon-success {
-    line-height: 32px;
-    color: var(--van-blue);
-  }
-
-  .icon-wrapper .van-icon-cross {
-    line-height: 32px;
-    color: var(--van-gray-5);
-  }
  
 </style>
